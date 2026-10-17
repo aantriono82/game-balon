@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pop Balon Matematika</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ SPLASH ============ -->
+  <section id="screen-splash" class="screen active" aria-labelledby="splash-title">
+    <h1 id="splash-title" class="title">🎈 POP BALON<br>MATEMATIKA</h1>
+    <p class="tagline">Pecahkan balon jawaban yang benar!</p>
+    <div class="howto">
+      🎯 <b>Cara main:</b> baca soalnya, lalu <b>klik balon</b> yang berisi jawaban benar.<br>
+      🎈 Balon benar akan <b>meletus</b>! Balon salah akan <b>kempis</b>.<br>
+      ❤️ Kamu punya <b>3 nyawa</b>. Jawab 10 soal dengan benar sebanyak-banyaknya!
+    </div>
+
+    <label class="sec" for="player-name">Nama Pemain</label>
+    <input id="player-name" class="name-input" type="text" maxlength="20"
+      placeholder="Tulis namamu di sini..." autocomplete="off">
+
+    <h2 class="sec">Pilih Mode</h2>
+    <div class="modes">
+      <button type="button" class="mode-card sel" data-mode="tambah" aria-pressed="true"><span class="op">➕</span>Tambah</button>
+      <button type="button" class="mode-card" data-mode="kurang" aria-pressed="false"><span class="op">➖</span>Kurang</button>
+      <button type="button" class="mode-card" data-mode="kali" aria-pressed="false"><span class="op">✖️</span>Kali</button>
+      <button type="button" class="mode-card" data-mode="bagi" aria-pressed="false"><span class="op">➗</span>Bagi</button>
+    </div>
+
+    <h2 class="sec">Pilih Level</h2>
+    <div class="levels">
+      <button type="button" class="level-card sel" data-level="mudah" aria-pressed="true"><span class="lv">😊 Mudah</span><span class="ds" id="ds-mudah"></span></button>
+      <button type="button" class="level-card" data-level="sedang" aria-pressed="false"><span class="lv">🙂 Sedang</span><span class="ds" id="ds-sedang"></span></button>
+      <button type="button" class="level-card" data-level="sukar" aria-pressed="false"><span class="lv">🤩 Sukar</span><span class="ds" id="ds-sukar"></span></button>
+    </div>
+
+    <p class="best-line">🏅 Skor terbaik: <b id="best-preview">–</b></p>
+    <button class="btn btn-start" id="btn-start">MULAI ▶</button>
+  </section>
+
+  <!-- ============ GAME ============ -->
+  <section id="screen-game" class="screen" aria-labelledby="question-text">
+    <div class="topbar">
+      <span id="hearts" aria-live="polite" aria-atomic="true">❤️❤️❤️</span>
+      <span aria-live="polite" aria-atomic="true">⭐ <span id="score-now">0</span>/10</span>
+      <button type="button" id="mute-btn" title="Suara" aria-label="Matikan suara">🔊</button>
+    </div>
+    <p class="q-label">Soal <span id="q-pos">1</span>/10 — <span id="q-label-name"></span>klik balon jawaban yang benar!</p>
+    <div class="question" id="question-text" tabindex="-1" aria-live="polite" aria-atomic="true">?</div>
+    <div id="balloon-area"></div>
+  </section>
+
+  <!-- ============ END ============ -->
+  <section id="screen-score" class="screen" aria-labelledby="end-title">
+    <div class="end-card">
+      <div id="stars">⭐⭐⭐</div>
+      <div id="end-title" class="end-title" tabindex="-1">Hebat!</div>
+      <div id="end-score" aria-live="polite">0/10</div>
+      <p class="end-sub" id="end-msg" aria-live="polite"></p>
+      <div id="new-record" hidden>🏆 Rekor Baru!</div>
+      <p class="end-sub">🏅 Skor terbaik: <b id="end-best">–</b></p>
+      <button type="button" class="btn btn-green" id="btn-again">🔄 MAIN LAGI</button>
+      <button type="button" class="btn btn-blue" id="btn-change">🎚️ GANTI MODE</button>
+    </div>
+  </section>
+
+  <footer class="site-footer">Made with <span class="heart" aria-label="love">♥</span> by Aan Triono</footer>
+</div>
+<div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
